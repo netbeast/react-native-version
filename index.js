@@ -87,7 +87,6 @@ function version(program, projectPath) {
     process.exit(1)
   }
 
-  const DEBUG_MANIFEST = 'android/app/src/debug/AndroidManifest.xml'
   const MAIN_MANIFEST = 'android/app/src/main/AndroidManifest.xml'
   var android
   var ios
@@ -130,7 +129,7 @@ function version(program, projectPath) {
 
       log({text: 'Done with gradle'}, programOpts.quiet)
 
-      ;([DEBUG_MANIFEST, MAIN_MANIFEST]).forEach((manifestPath) => {
+      ;([MAIN_MANIFEST]).forEach((manifestPath) => {
         log({ text: 'Trying with manifest' + manifestPath })
         var manifestFile = fs.readFileSync(manifestPath, 'utf8')
         var nextManifest = manifestFile
